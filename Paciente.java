@@ -109,8 +109,7 @@ public class Paciente<P  extends Comparable<P>, E, N> implements Comparable<Paci
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(Paciente<P, E, N> arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Paciente<P, E, N> s) {
+		return prioridad.compareTo(s.getPrioridad());
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Vector;
  * @author Rodrigo Alvarado  16106
  *
  */
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
+public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro<E>
 {
 	
 	 /**
