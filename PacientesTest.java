@@ -4,6 +4,10 @@ import org.junit.Test;
 
 public class PacientesTest {
 
+	
+	/*
+	 * revisa que el heap guarde y muestre el paciente correcto
+	 */
 	@Test
 	public void test() {
 		VectorHeap<Paciente<String, String, String>> heap = new VectorHeap<Paciente<String, String, String>>();

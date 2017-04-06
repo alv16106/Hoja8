@@ -17,9 +17,12 @@ public class MainPacientes {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
+		
 		Scanner s = new Scanner(System.in);
 		System.out.println("Desea usar el (1)'Vector Heap' o el (2)'PriorityQueue'?");
 		int a = s.nextInt();
+		
+		// Creacion de las clases a mplementar
 		PriorityQueue<Paciente<String, String, String>> ss = new PriorityQueue<Paciente<String, String, String>>();
 		VectorHeap<Paciente<String, String, String>> heap = new VectorHeap<Paciente<String, String, String>>();
 		String cadena;
@@ -27,24 +30,29 @@ public class MainPacientes {
 		//Utilizacion de buffered Reader para obtener los datos de un archivo de texto
 		FileReader fr = new FileReader("pacientes.txt");
 	 	BufferedReader bf = new BufferedReader(fr);
+	 	// Guardar los pacientes en el metodo seleccionado
 		while ((cadena = bf.readLine()) != null) {
 			cadena = cadena.replaceAll("[()]", "");
 			String[] datos = cadena.split("\\s*,\\s*");
+			// Guarda e el vector heap
 			if (a==1){
 				heap.add(new Paciente<String, String, String>(datos[0], datos[1], datos[2]));
-			}else{
+			}
+			// Guarda en el JCF
+			else{
 				ss.add(new Paciente<String, String, String>(datos[0], datos[1], datos[2]));
 			}
 			
 			System.out.println(heap.toString());
-				
-			//System.out.println(datos[1]);
 		}
-		bf.close(); // cierra el txt
+		bf.close(); // cierra el txt}
+		
+		//Mostrar los pacientes del VectorHeap
 		if(a==1){
 			while (heap.size()!=0){
 				System.out.println(heap.remove().toString());
 			}
+		// Mostrar los pacientes del JCF
 		}else{
 			while (ss.size()!=0){
 				System.out.println(ss.remove().toString());

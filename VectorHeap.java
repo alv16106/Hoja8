@@ -9,14 +9,13 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
 {
 	
 	 /**
-     * The data, kept in heap order.
+     * los datos, mantener el heap en orden.
      */
     protected Vector<E> data;  // the data, kept in heap order
 
     /**
-     * Construct a new priority queue
      *
-     * @post constructs a new priority queue
+     * @post construir un nuevo priority queue
      */
     public VectorHeap()
     {
@@ -24,9 +23,8 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Construct a new priority queue from an unordered vector
-     *
-     * @post constructs a new priority queue from an unordered vector
+     *     
+     * @post construir un nuevo priority queue desde un vector desordenado
      */
     public VectorHeap(Vector<E> v)
     {
@@ -39,11 +37,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Returns parent index
+     * Regresa el index del padre
      * @param i a node index
-     * @return parent of node at i
+     * @return padre del node en i
      * @pre 0 <= i < size
-     * @post returns parent of node at location i
+     * @post regresa la locacion en i del nodo
      */
     protected static int parent(int i)
     {
@@ -51,11 +49,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Returns left child index.
-     * @param i a node index
-     * @return left child of node at i
+     * Regresa el index del hijo izquierda
+     * @param i un node index
+     * @return hijo de la izquierda del nodo en la posicion i
      * @pre 0 <= i < size
-     * @post returns index of left child of node at location i
+     * @post regresa el index del hijo de la izquierda del nodo en la locacion i 
      */
     protected static int left(int i)
     {
@@ -63,11 +61,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Returns right child index.
-     * @param i a node index
-     * @return right child of node at i
+     * Regresa el index del hijo de la derecha.
+     * @param i un index del nodo
+     * @return hijo de la derecha del nodo en la posicion i
      * @pre 0 <= i < size
-     * @post returns index of right child of node at location i
+     * @post regresa el index del hijo de la derecha del nodo en la locacion i 
      */
     protected static int right(int i)
     {
@@ -75,12 +73,12 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Fetch lowest valued (highest priority) item from queue.
+     * busca el valor más pequeno (con mayor prioridad) del queue.
      *
-     * @pre !isEmpty()
-     * @post returns the minimum value in priority queue
+     * @pre no esta vacio el queue
+     * @post returns el minimo valor del priority queue
      * 
-     * @return The smallest value from queue.
+     * @return el mas pequeno valor del queue.
      */
     public E getFirst()
     {
@@ -88,12 +86,12 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Returns the minimum value from the queue.
+     * Returns el valor minimo del queue.
      *
-     * @pre !isEmpty()
-     * @post returns and removes minimum value from queue
+     * @pre  no debe estar vacie el queue 
+     * @post regresa y mueve el valor minimo desde el queue
      * 
-     * @return The minimum value in the queue.
+     * @return El valor miimo en el quee.
      */
     public E remove()
     {
@@ -105,12 +103,12 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Add a value to the priority queue.
+     * Anade un valor al priority queue.
      *
-     * @pre value is non-null comparable
-     * @post value is added to priority queue
+     * @pre el valor no es null
+     * @post el valor se anade a priority queue
      * 
-     * @param value The value to be added.
+     * @param valor, el valor que se desea anadir.
      */
     public void add(E value)
     {
@@ -119,11 +117,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Determine if the queue is empty.
+     * Determina si el queue esta vacio.
      *
-     * @post returns true iff no elements are in queue
-     * 
-     * @return True if the queue is empty.
+     * @post regresa verdadero si no hay elementos en el queue
+     *  
+     * @return verdadero si el queue esta vacio.
      */
     public boolean isEmpty()
     {
@@ -131,10 +129,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Moves node upward to appropriate position within heap.
-     * @param leaf Index of the node in the heap.
+     * mover un nodo hacia arriba a una posicion apropiada en el heap.
+     * @param el index de la hoja del nodo en el heap.
      * @pre 0 <= leaf < size
-     * @post moves node at index leaf up to appropriate position
+     * @post mueve el nodo a un index del hijo a una apropiada posicion
      */
     protected void percolateUp(int leaf)
     {
@@ -151,11 +149,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Moves node downward, into appropriate position within subheap.
-     * @param root Index of the root of the subheap.
+     *  mover el nodo hacia abajo en una posicion apropiada dentro del subheap.
+     * @param Index  de la rama del subheap.
      * @pre 0 <= root < size
-     * @post moves node at index root down 
-     *   to appropriate position in subtree
+     * @post mueve el index del nodo abajo a una posicion apropiada en el subtree
+     *   
      */
     protected void pushDownRoot(int root)
     {
@@ -189,11 +187,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Determine the size of the queue.
+     * Determina el tamano del queue.
      *
-     * @post returns number of elements within queue
+     * @post regresa el numero de elementos en el queue
      * 
-     * @return The number of elements within the queue.
+     * @return el numero de los elementos en el queue.
      */
     public int size()
     {
@@ -201,9 +199,9 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     }
 
     /**
-     * Remove all the elements from the queue.
+     * Remueve todos los elementos del queue.
      *
-     * @post removes all elements from queue
+     * @post remueve todos los elementos del queue
      */
     public void clear()
     {
@@ -211,11 +209,11 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueNuestro
     } 
     
     /**
-     * Construct a string representation of the heap.
+     * Construir una cadena que represente el heap.
      *
-     * @post returns string representation of heap
+     * @post regresa un string que representa el heap
      * 
-     * @return The string representing the heap.
+     * @return El string que representa el heap.
      */
     public String toString()
     {
